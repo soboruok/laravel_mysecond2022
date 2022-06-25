@@ -19,10 +19,18 @@ use Illuminate\Support\Facades\Route;
 //All List
 Route::get('/listings', [ListingController::class, 'index']);
 
+
+
+//Show Create Form
+Route::get('/listings/create', [ListingController::class, 'create']); 
+
+//Single Listing Data
+///listings URL로 들어오면, ListingController의 store페이지로 이동한다.
+Route::post('/listings', [ListingController::class, 'store']);
+
+
 //Single List
 Route::get('/listings/{id}', [ListingController::class, 'show']);
-
-
 
 
 

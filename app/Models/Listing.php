@@ -9,18 +9,19 @@ class Listing extends Model
 {
     use HasFactory;
 
-    // our listing model now will be able to filter.
-    public function scopeFilter($query, array $filter){
-        //if this is not false then move on. 
-        if($filter['tag'] ?? false){
-            // where tags like '%anything%'
-            $query->where('tags', 'like', '%' .request('tag').'%');
-        } 
+    // we have to add fillable property to create our form to table in the database. 
+    // protected $fillable = ['title', 'company', 'location', 'website', 'email', 'description', 'tags'];
 
-        if($filter['search'] ?? false) {
+    // our listing model now will be able to filter.
+    public function scopeFilter($query, array $filters) {
+        if($filters['tag'] ?? false) {
+            $query->where('tags', 'like', '%' . request('tag') . '%');
+        }
+
+        if($filters['search'] ?? false) {
             $query->where('title', 'like', '%' . request('search') . '%')
                 ->orWhere('description', 'like', '%' . request('search') . '%')
                 ->orWhere('tags', 'like', '%' . request('search') . '%');
         }
-     }
+    }
 }

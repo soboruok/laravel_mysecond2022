@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ListingController extends Controller
 {
@@ -15,14 +16,11 @@ class ListingController extends Controller
 
         // listings폴더안의 index파일
         return view('listings.index', [
-            'heading' => 'Lastest Listings',
-            // 'listings' => Listing :: all()
-            // get방식으로 tag 나 search 요청이 들어오면 필터 적용한다. 
             'listings'=>Listing::latest()->filter(request(['tag', 'search']))->get()
         ]);
     }
 
-    //show single listing
+    //Show single listing
     public function show($id){
         $listing = Listing :: find($id);
 
@@ -35,4 +33,35 @@ class ListingController extends Controller
             abort('404'); 
         }
     }
+
+    //Show Create Form 
+    public function create(){
+        // listings폴더안의 create파일
+        return view('listings.create'); 
+    }
+
+    //store Listing data
+    public function store(Request $request){
+
+        //validation check
+        $formFields = $request->validate(([
+            'title' => 'required',
+            // company는 중복이 되면 안된다.
+            'company' => ['required', Rule::unique('listings', 'company')],
+            'location' => 'required',
+            'website' => 'required',
+            'email' => ['required', 'email'],
+            'tags' => 'required',
+            'description' => 'required'
+        ]));
+
+        //Listing모델에 $formFields생성한다.
+        Listing::create($formFields);
+
+        return redirect('/');
+    }
+
+
+
+
 }

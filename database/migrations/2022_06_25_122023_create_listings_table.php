@@ -11,6 +11,8 @@ class CreateListingsTable extends Migration
      *
      * @return void
      */
+
+    
     public function up()
     {
         Schema::create('listings', function (Blueprint $table) {

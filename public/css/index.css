@@ -414,6 +414,12 @@ td {
 .xl {
     font-size: 4rem;
 }
+
+/* Text color */
+.red {
+    color: red;
+}
+
 .text-center {
     text-align: center;
 }
