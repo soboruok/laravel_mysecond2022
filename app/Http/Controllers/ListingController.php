@@ -58,7 +58,8 @@ class ListingController extends Controller
         //Listing모델에 $formFields생성한다.
         Listing::create($formFields);
 
-        return redirect('/');
+        //Flash Message
+        return redirect('/')->with('Success', 'Listing created successfully');
     }
 
 

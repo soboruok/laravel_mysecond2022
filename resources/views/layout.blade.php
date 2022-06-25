@@ -47,5 +47,7 @@
             </div>
         </div>
     </footer>
+
+    <x-flashMessage />
 </body>
 </html>

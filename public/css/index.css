@@ -222,6 +222,15 @@ td {
     padding: 10px;
 }
 
+/* flash message */
+.flashMessage {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
 /* RESPONSIVE WEB */
 /* Tablets and under */
 @media (max-width: 768px) {
