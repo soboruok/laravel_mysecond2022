@@ -5,7 +5,7 @@
     <div class="container">
         <div class="showcase-form">
             <h2>Write List</h2>
-            <form method="POST" action="/listings">
+            <form method="POST" action="/listings" enctype="multipart/form-data">
                 {{-- stops cross-site scripting attacks --}}
                 @csrf
                 <div class="form-control">
@@ -33,10 +33,17 @@
                     @error('website') <p class="red">{{ $message }}</p> @enderror
                 </div>
                 <div class="form-control">
+                    Logo:<input type="file" name="logo" value="{{old('logo')}}" />
+                    @error('logo') <p class="red">{{ $message }}</p> @enderror
+                </div>
+                <div class="form-control">
                     Description:<textarea cols="50" rows="10" name="description">{{old('location')}}</textarea>
                     @error('description') <p class="red">{{ $message }}</p> @enderror
                 </div>
-                <input type="submit" value="Send" class="btn btn-primary" />
+                <div class="mainFeedback">
+                    <a href="/" class="btn btn-light"> Back </a>
+                    <input type="submit" value="Send" class="btn btn-primary" />
+                </div>
             </form>
         </div>
     </div>

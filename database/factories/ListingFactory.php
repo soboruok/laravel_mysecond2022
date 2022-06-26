@@ -15,13 +15,14 @@ class ListingFactory extends Factory
     {
         return [
            //Listings fake contents.. 
-'title' => $this->faker->sentence(),
-'tags' => 'laravel, api, backend',
-'company' => $this->faker->company(),
-'email' => $this->faker->email(),
-'website' => $this->faker->url(),
-'location' => $this->faker->city(),
-'description' => $this->faker->paragraph(5), 
+            'title' => $this->faker->sentence(),
+            'tags' => 'laravel, api, backend',
+            'company' => $this->faker->company(),
+            'email' => $this->faker->email(),
+            'website' => $this->faker->url(),
+            'logo' => $this->faker->logo(),
+            'location' => $this->faker->city(),
+            'description' => $this->faker->paragraph(5), 
         ];
     }
 }

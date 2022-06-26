@@ -46,6 +46,9 @@ class ListingController extends Controller
     //store Listing data
     public function store(Request $request){
 
+        //dd($request->file('logo'));
+
+        
         //validation check
         $formFields = $request->validate(([
             'title' => 'required',
@@ -57,6 +60,13 @@ class ListingController extends Controller
             'tags' => 'required',
             'description' => 'required'
         ]));
+
+
+        //logo라는 파일이 있다면,해당파일을 storage내부에 public/logos폴더에 파일로 저장한다.
+        if($request->hasFile('logo')){
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public'); 
+        }
+
 
         //Listing모델에 $formFields생성한다.
         Listing::create($formFields);
