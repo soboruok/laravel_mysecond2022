@@ -11,12 +11,15 @@ class ListingController extends Controller
     //Show all listings
     public function index(){
 
+        //dd(Listing::latest()->filter(request(['tag', 'search']))->paginate(5)); 
         //http://127.0.0.1:8000/listings?tag=Lee
         //dd(request('tag')); 
 
         // listings폴더안의 index파일
+        // 가장최근의 데이타를 불러서, 필터링을 하고 페이징처리로 5개의 데이타를 얻겠다.
         return view('listings.index', [
-            'listings'=>Listing::latest()->filter(request(['tag', 'search']))->get()
+            //'listings'=>Listing::latest()->filter(request(['tag', 'search']))->paginate(5)
+            'listings'=>Listing::latest()->filter(request(['tag', 'search']))->simplePaginate(5)
         ]);
     }
 

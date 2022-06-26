@@ -433,6 +433,11 @@ td {
     text-align: center;
 }
 
+.text-right {
+    text-align: right;
+    margin: 0 0 10px;
+}
+
 .flex {
     display: flex;
     /* flex-direction: column; */

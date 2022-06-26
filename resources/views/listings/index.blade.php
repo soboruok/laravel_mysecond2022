@@ -6,6 +6,9 @@
         <div class="container">
             <div class="showcase-form">
                 <h2>List</h2>
+                <div class="text-right">
+                    <button class="btn btn-primary"><a href="listings/create">Creat List</a></button>
+                </div>
                 <table class="text-center">
                     <thead>
                     <tr>
@@ -29,11 +32,11 @@
                     @endunless
                     </tbody>
                 </table>
+                <div class="text-center">
+                    {{ $listings->links() }}
+                </div>
+
             </div>
-            <div class="text-center">
-                <button class="btn btn-primary"><a href="listings/create">Creat List</a></button>
-            </div>
-        
 
         </div>
     </section>
