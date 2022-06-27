@@ -11,8 +11,8 @@
 <body>
     <div class="topNav">   
         <ul>
-            <li><a href="#">Register</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
         </ul>
     </div>
     <div class="navbar">
@@ -24,7 +24,7 @@
                     <li><a href="service.html">Services</a></li>
                     <li><a href="team.html">OurTeam</a></li>
                     <li><a href="feedback.html">Feedback</a></li>
-                    <li><a href="blog.html">List</a></li>
+                    <li><a href="/">List</a></li>
                 </ul>
             </nav>
         </div>
