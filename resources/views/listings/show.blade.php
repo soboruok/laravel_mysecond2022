@@ -7,10 +7,12 @@
                 <div class="mainFeedback">
                     <h2>View Page</h2>
                     <div class="flex">
-                        <span>
-                            <a href="/listings/{{$listing->id}}/edit" class="btn btn-dark"> Edit </a>
-                        </span>
-                        <span class="px-2"><a href="/listings" class="btn btn-light"> Back </a></span>
+                        <form method="POST" action="/listings/{{$listing->id}}">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="Delete" class="btn btn-dark" />
+                        </form>
+                        <span class="px-1"><a href="/" class="btn btn-light"> Back </a></span>
                     </div>
                 </div>
                 <table class="text-center">
@@ -49,6 +51,15 @@
                         <td>{{$listing->description}}</td>
                     </tr>
                 </table>
+            </div>
+
+            <div class="text-center">
+                
+                <span>
+                    <a href="/listings/{{$listing->id}}/edit" class="btn btn-primary"> 
+                        Edit
+                    </a>
+                </span>
             </div>
             
 
