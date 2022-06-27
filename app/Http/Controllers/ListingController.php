@@ -75,6 +75,39 @@ class ListingController extends Controller
         return redirect('/')->with('Success', 'Listing created successfully');
     }
 
+    //Show Edit Form
+    public function edit(Listing $id){
+        //dd($id);
+        return view('listings.edit', ['listing' => $id]); 
+    }
+
+    public function update(Request $request, Listing $id){
+        //validation check
+        $formFields = $request->validate(([
+            'title' => 'required',
+            // company는 중복이 되면 안된다.
+            'company' => ['required'],
+            'location' => 'required',
+            'website' => 'required',
+            'email' => ['required', 'email'],
+            'tags' => 'required',
+            'description' => 'required'
+        ]));
+
+
+        //logo라는 파일이 있다면,해당파일을 storage내부에 public/logos폴더에 파일로 저장한다.
+        if($request->hasFile('logo')){
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public'); 
+        }
+
+
+        //$id의 $formField데이타를 업데이트한다. 
+        $id->update($formFields);
+
+        //Flash Message
+        return back()->with('Success', 'Listing updated successfully');
+    }
+
 
 
 

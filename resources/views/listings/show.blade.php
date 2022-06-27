@@ -4,8 +4,15 @@
     <section class="mainAbout my-1">
         <div class="container">
             <div class="showcase-form">
-                <h2>List</h2>
-               
+                <div class="mainFeedback">
+                    <h2>View Page</h2>
+                    <div class="flex">
+                        <span>
+                            <a href="/listings/{{$listing->id}}/edit" class="btn btn-dark"> Edit </a>
+                        </span>
+                        <span class="px-2"><a href="/listings" class="btn btn-light"> Back </a></span>
+                    </div>
+                </div>
                 <table class="text-center">
                     <tr>
                         <th>Title</th>
@@ -43,9 +50,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="mainSearch">
-                <a href="/listings" class="btn btn-dark"> Back </a>
-            </div>
+            
 
         </div>
     </section>

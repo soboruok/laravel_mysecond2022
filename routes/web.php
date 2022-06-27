@@ -16,6 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+/*
+index - Show all listings
+show - Show single listing.
+create - Show form to create new listing
+store - Store new listing
+edit - Show form to edit listing
+update - Update listing
+destory - Delete listing
+*/
+
 //All List
 Route::get('/', [ListingController::class, 'index']);
 
@@ -28,9 +39,12 @@ Route::get('/listings/create', [ListingController::class, 'create']);
 ///listings URL로 들어오면, ListingController의 store페이지로 이동한다.
 Route::post('/listings', [ListingController::class, 'store']);
 
+//Show Edit Form
+Route::get('/listings/{id}/edit', [ListingController::class, 'edit']);
+
+//Update Listing
+Route::put('/listings/{id}', [ListingController::class, 'update']);
+
 
 //Single List
 Route::get('/listings/{id}', [ListingController::class, 'show']);
-
-
-
