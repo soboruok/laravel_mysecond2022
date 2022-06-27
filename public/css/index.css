@@ -44,6 +44,20 @@ img {
     width: 100%;
 }
 
+button:focus {
+    outline: 0;
+}
+/* 버튼기본속성초기화 */
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #333;
+}
+
 /* topNav */
 .topNav {
     background-color: #fff;

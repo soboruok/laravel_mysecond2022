@@ -11,8 +11,19 @@
 <body>
     <div class="topNav">   
         <ul>
+            @auth
+            <li>Welcome {{auth()->user()->name}}</li>
+            <li class="px-1"><a href="/">List</a></li>
+            <li>
+                <form method="POST" action="/logout">
+                  @csrf
+                  <button type="submit" class="sm"> Logout </button>
+                </form>
+              </li>
+            @else
             <li><a href="/register">Register</a></li>
             <li><a href="/login">Login</a></li>
+            @endauth
         </ul>
     </div>
     <div class="navbar">
@@ -24,7 +35,7 @@
                     <li><a href="service.html">Services</a></li>
                     <li><a href="team.html">OurTeam</a></li>
                     <li><a href="feedback.html">Feedback</a></li>
-                    <li><a href="/">List</a></li>
+                    
                 </ul>
             </nav>
         </div>
